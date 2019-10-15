@@ -1,0 +1,92 @@
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, Image, TextInput, TouchableOpacity, Button} from 'react-native';
+
+
+export default class App extends Component{
+  constructor(){
+    super()
+    this.state={
+      ketqua :""
+    }
+  }
+
+    
+  render(){
+    return(
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.textST}>{this.state.ketqua}</Text>
+        </View>
+
+        <View>
+          <View style={styles.row}>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: ''})}  title= {'C'} /></View>
+            <View style={{width: '20%'}}><Button  title= {''} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua/100})}  title= {'%'} /></View>
+            <View style={{width: '20%'}}><Button  title= {'/'} /></View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'7'})}  title= {'7'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'8'})}  title= {'8'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'8'})}  title= {'9'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'*'})}  title= {'X'} /></View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'4'})}  title= {'4'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'5'})}  title= {'5'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'6'})}  title= {'6'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'-'})}  title= {'-'} /></View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'1'})}  title= {'1'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'2'})}  title= {'2'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'3'})}  title= {'3'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'+'})}  title= {'+'} /></View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'0'})}  title= {'0'} /></View>
+            <View style={{width: '20%'}}><Button  title= {''} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: this.state.ketqua+'.'})}  title= {'.'} /></View>
+            <View style={{width: '20%'}}><Button onPress={() =>this.setState({ketqua: eval(this.state.ketqua)})}  title= {'='} /></View>
+          </View>
+        </View>
+      </View>
+
+    );
+  }
+}
+
+const styles=StyleSheet.create({
+  container:{
+    backgroundColor: 'black',
+    height: '100%',
+    width: '100%',
+    color: '#fff',
+  },
+  header:{
+    width: '100%',
+    marginTop: '40%',
+    borderColor: 'white',
+    marginBottom: '10%',
+  },
+  row:{
+    flexDirection:'row',
+    height: '15%',
+    width: '100%',
+    justifyContent: 'space-between'
+    
+  },
+  textST:{
+    color: '#fff',
+
+  },
+
+  
+  footer:{
+    flexDirection:'row',alignSelf:'center'
+  }
+})
